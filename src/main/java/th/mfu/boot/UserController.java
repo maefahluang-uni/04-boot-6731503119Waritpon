@@ -1,4 +1,3 @@
-// src/main/java/th/mfu/boot/UserController.java
 package th.mfu.boot;
 
 import java.util.Collection;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
-
     public static Map<String, User> users = new HashMap<>();
 
     @PostMapping("/users")
@@ -23,7 +21,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists");
         }
         users.put(user.getUsername(), user);
-        return ResponseEntity.status(HttpStatus.CREATED).body("User created");
+        return ResponseEntity.ok("User registered successfully");
     }
 
     @GetMapping("/users")
